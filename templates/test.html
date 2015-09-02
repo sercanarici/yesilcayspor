@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% for haber in x %}
+        {{ haber.baslik}} <br>
+        {{ haber.icerik}} <br>
+        {{ haber.olusturulma_tarihi}} <br>
+        {{ haber.kullanici}}<br>
+
+        {% if haber.foto %}
+        Image = <img src="{{ haber.foto }}" width="20%"> <br>
+        {% endif %}
+
+    {% endfor %}
+
+
+{% endblock %}

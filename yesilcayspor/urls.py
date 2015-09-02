@@ -26,7 +26,6 @@ urlpatterns = [
     url(r'^stadimiz$', stadimiz, name='stadimiz'),
     url(r'^tarihce$', tarihce, name='tarihce'),
     url(r'^tesislerimiz$', tesislerimiz, name='tesislerimiz'),
-    url(r'^test$', deneme, name='tarihce'),
 ]
 
 if settings.DEBUG:

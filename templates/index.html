@@ -1,8 +1,7 @@
 ﻿{% extends "base.html" %}
 {% load static %}
 
-{% block content %}
-
+{% block slider %}
     <section>
         <div class="container">
             <div id="owl-demo" class="owl-carousel owl-theme">
@@ -15,206 +14,47 @@
             </div>
         </div>
     </section>
-    <section class="main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="blog">
-                        <h2>HABERLERİMİZ</h2>
-                        {% for haber in haberler %}
-                            <article>
-                            <img src="{{ haber.foto }}"/>
-
-                            <div class="blog-text">
-                                <h4>{{ haber.baslik }}</h4>
-
-                                <p>{{ haber.icerik|truncatechars:150 }}</p>
-
-                                <a href="{% url "haber_detay" haber.id %}"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
-
-                                <div class="datetime">{{ haber.olusturulma_tarihi }}</div>
-                            </div>
-                            </article>
-                        {% endfor %}
-
-                        <article>
-                            <img src="static/img/rk.jpeg"/>
-
-                            <div class="blog-text">
-                                <h4>Siyah ile beyaz gibi farklı iki devreli bir maç oynadık</h4>
-
-                                <p>1-1 berabere sona eren Akhisar Bld.Gençlik ve Spor maçının ardından düzenlenen basın
-                                    toplantısında konuşan Teknik Direktör ...</p>
-                                <a href="haber_detay.html"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
-
-                                <div class="datetime">17.08.2015 01:25:00</div>
-                            </div>
-                        </article>
-                        <div class="tumHaberler">
-                            <a href="#"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="fikstur">
-                        <div id="owl-fikstur" class="owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="weekname">1.Hafta</div>
-                                <div class="teams">
-                                    <ul>
-                                        <li class="hometeam">
-                                            <ul>
-                                                <li style="display:block;" class="hometeam-logo"><img
-                                                        src="static/img/club/torku.jpg" height="65"></li>
-                                                <li style="display:block;" class="hometeam-name">YEŞİLÇAYSPOR</li>
-                                            </ul>
-                                        </li>
-                                        <li class="vs">
-                                            <ul>
-                                                <li class="vs-datum">29 Ağustos 2015 Cumartesi 21:45</li>
-                                                <li class="vs-place">Konya Büyükşehir Torku Arena</li>
-                                                <li class="vs-score">1 - 1</li>
-                                            </ul>
-                                        </li>
-                                        <li class="awayteam">
-                                            <ul>
-                                                <li style="display:block;" class="hometeam-logo"><img
-                                                        src="static/img/club/cimbom.jpg" height="65"></li>
-                                                <li style="display:block;" class="hometeam-name">GALATASARAY</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="item">
-                                <div class="weekname">2.Hafta</div>
-                                <div class="teams">
-                                    <ul>
-                                        <li class="hometeam">
-                                            <ul>
-                                                <li style="display:block;" class="hometeam-logo"><img
-                                                        src="static/img/club/torku.jpg" height="65"></li>
-                                                <li style="display:block;" class="hometeam-name">YEŞİLÇAYSPOR</li>
-                                            </ul>
-                                        </li>
-                                        <li class="vs">
-                                            <ul>
-                                                <li class="vs-datum">29 Ağustos 2015 Cumartesi 21:45</li>
-                                                <li class="vs-place">Konya Büyükşehir Torku Arena</li>
-                                                <li class="vs-score">-</li>
-                                            </ul>
-                                        </li>
-                                        <li class="awayteam">
-                                            <ul>
-                                                <li style="display:block;" class="hometeam-logo">
-                                                    <img src="static/img/club/cimbom.jpg" height="65">
-                                                </li>
-                                                <li style="display:block;" class="hometeam-name">GALATASARAY</li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="puanList">
-                        <table class="table table-striped puanDurumu">
-                            <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Takım</th>
-                                <th>O</th>
-                                <th>G</th>
-                                <th>B</th>
-                                <th>M</th>
-                                <th>AV</th>
-                                <th>P</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Yeşilçayspor</td>
-                                <td>13</td>
-                                <td>13</td>
-                                <td>10</td>
-                                <td>10</td>
-                                <td>33</td>
-                                <td>33</td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Gedizgücü</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>3</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Gedizgücü</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>3</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Gedizgücü</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>3</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Emetspor</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>3</td>
-                                <td>3</td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Erdoğmuşspor</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>3</td>
-                                <td>3</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                    <div class="facebook_likebox">
-                        <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fyesilcayspor&amp;width=360&amp;colorscheme=light&amp;connections=8&amp;stream=false&amp;header=false&amp;height=360"
-                                scrolling="no" frameborder="0"
-                                style="border:none; overflow:hidden; width:360px; height:213px;"
-                                allowtransparency="true"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 {% endblock %}
-<div class="wrapper">
 
+{% block content_left %}
+    <div class="blog">
+        <h2>HABERLERİMİZ</h2>
+        {% for haber in haberler %}
+            <article>
+                <img src="{{ haber.foto }}"/>
 
-</div>
+                <div class="blog-text">
+                    <h4>{{ haber.baslik }}</h4>
 
+                    <p>{{ haber.icerik|truncatechars:150 }}</p>
 
+                    <a href="{% url "haber_detay" haber.id %}"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
+
+                    <div class="datetime">{{ haber.olusturulma_tarihi }}</div>
+                </div>
+            </article>
+        {% endfor %}
+
+        <article>
+            <img src="static/img/rk.jpeg"/>
+
+            <div class="blog-text">
+                <h4>Siyah ile beyaz gibi farklı iki devreli bir maç oynadık</h4>
+
+                <p>1-1 berabere sona eren Akhisar Bld.Gençlik ve Spor maçının ardından düzenlenen basın
+                    toplantısında konuşan Teknik Direktör ...</p>
+                <a href="haber_detay.html"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
+
+                <div class="datetime">17.08.2015 01:25:00</div>
+            </div>
+        </article>
+        <div class="tumHaberler">
+            <a href="#"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
+        </div>
+    </div>
+{% endblock %}
+
+{% block content_bottom %}
 <div class="oyuncularimiz">
     <div class="container">
         <h2>FUTBOLCULARIMIZ</h2>
@@ -309,7 +149,6 @@
         </div>
     </div>
 </div>
-
 <div class="sponsor">
     <div class="container">
         <h2>SPONSORLARIMIZ</h2>
@@ -347,4 +186,10 @@
         </ul>
     </div>
 </div>
+{% endblock %}
+
+
+
+
+
 

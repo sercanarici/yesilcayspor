@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from web.models import Haber
+from web.models import Haber, Tarihce, SiteAyarlar
 
 
 def index(request):
@@ -8,12 +8,19 @@ def index(request):
 
 
 def fikstur(request):
-    return render(request,"fikstur.html",locals())
+    ayar = SiteAyarlar.objects.all()
+    frame = ayar[0].fikstur_link
+    return render(request, "fikstur.html", locals())
+
+
+def haberler(request):
+    haberler = Haber.objects.all()
+    return render(request, "haberler.html", locals())
 
 
 def haber_detay(request, haber_id):
     haber = Haber.objects.get(pk=haber_id)
-    return render(request,"haber_detay.html",locals())
+    return render(request, "haber_detay.html", locals())
 
 
 def stadimiz(request):
@@ -21,14 +28,16 @@ def stadimiz(request):
 
 
 def tarihce(request):
-    return render(request,"tarihce.html",locals())
+    ayar = SiteAyarlar.objects.all()
+    icerik = ayar[0].tarihce
+    return render(request, "tarihce.html", locals())
 
 
 def tesislerimiz(request):
-    return render(request,"tesislerimiz.html",locals())
+    return render(request, "tesislerimiz.html", locals())
 
 
 def deneme(request):
     x = Haber.objects.all()
-    return render(request,"test.html",locals())
+    return render(request, "test.html", locals())
 

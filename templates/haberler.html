@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block slider %}
+    <section>
+        <div class="container">
+            <div id="owl-demo" class="owl-carousel owl-theme">
+                <div class="item" style="background: url(static/img/slider/slider1.png) no-repeat;">
+                    <span>Yeni transferimiz Samuel Holmen yarın resmi sözleşme imzalayacak</span>
+                </div>
+                <div class="item" style="background: url(static/img/slider/slider2.png) no-repeat;">
+                    <span>Takımımızda Kayserispor maçının hazırlıkları tamamlandı</span>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block content_left %}
+    <div class="blog">
+        <h2>HABERLER</h2>
+        {% for haber in haberler %}
+            <article>
+                <img src="{{ haber.foto }}"/>
+
+                <div class="blog-text">
+                    <h4>{{ haber.baslik }}</h4>
+
+                    <p>{{ haber.icerik|truncatechars:150 }}</p>
+
+                    <a href="{% url "haber_detay" haber.id %}"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
+
+                    <div class="datetime">{{ haber.olusturulma_tarihi }}</div>
+                </div>
+            </article>
+        {% endfor %}
+        <div class="tumHaberler">
+            <a href="#"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+

@@ -188,6 +188,8 @@ background-color: #ffcc00;
 .page-detay p { color: #444; font-size: 15px;line-height: 18px;padding: 0 0 10px; }
 .page-detay ul li { float: left; }
 
+iframe {width: 100%; height: 550px;}
+
 
 table.tblFikstur { background: #fff; width: 100%;margin-bottom: 15px;}
 table.tblFikstur thead tr th { background: #009850; color: #fff;border-bottom: 0 none; font-size: 16px; padding: 6px 2px; font-family: 'proxima_nova_bold'; text-align: center; }

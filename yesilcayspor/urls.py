@@ -16,12 +16,13 @@ Including another URLconf
 """
 from django.conf.urls import include, url, patterns
 from django.contrib import admin
-from web.views import index, fikstur, haber_detay, stadimiz, tarihce, tesislerimiz, deneme
+from web.views import index, fikstur, haber_detay, stadimiz, tarihce, tesislerimiz, haberler
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', index, name='home'),
     url(r'^fikstur$', fikstur, name='fikstur'),
+    url(r'^haberler$', haberler, name='haberler'),
     url(r'^haber_detay/(?P<haber_id>[0-9]+)/$', haber_detay, name='haber_detay'),
     url(r'^stadimiz$', stadimiz, name='stadimiz'),
     url(r'^tarihce$', tarihce, name='tarihce'),

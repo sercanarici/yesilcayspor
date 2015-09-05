@@ -18,7 +18,7 @@
 
 {% block content_left %}
     <div class="blog">
-        <h2>HABERLERİMİZ</h2>
+        <h2>HABERLER</h2>
         {% for haber in haberler %}
             <article>
                 <img src="{{ haber.foto }}"/>
@@ -34,22 +34,8 @@
                 </div>
             </article>
         {% endfor %}
-
-        <article>
-            <img src="static/img/rk.jpeg"/>
-
-            <div class="blog-text">
-                <h4>Siyah ile beyaz gibi farklı iki devreli bir maç oynadık</h4>
-
-                <p>1-1 berabere sona eren Akhisar Bld.Gençlik ve Spor maçının ardından düzenlenen basın
-                    toplantısında konuşan Teknik Direktör ...</p>
-                <a href="haber_detay.html"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
-
-                <div class="datetime">17.08.2015 01:25:00</div>
-            </div>
-        </article>
         <div class="tumHaberler">
-            <a href="#"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
+            <a href="{% url "haberler" %}"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
         </div>
     </div>
 {% endblock %}

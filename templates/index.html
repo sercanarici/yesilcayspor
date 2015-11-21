@@ -6,7 +6,7 @@
         <div class="container">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 {% for slide in slides %}
-                <div class="item" style="background: url({{ slide.image.url }}) no-repeat;">
+                <div class="item" style="background: url({{ slide.foto.url }}) no-repeat;">
                     <span>{{ slide.aciklama }}</span>
                 </div>
                 {% endfor %}
@@ -43,7 +43,6 @@
 <div class="oyuncularimiz">
     <div class="container">
         <h2>EFSANELER</h2>
-
         <div id="owl-players" class="owl-carousel owl-theme">
 
             {% for efsane in efsaneler %}
@@ -75,7 +74,7 @@
                 <li class="col-md-2">
                 <figure>
                     <a href="{{ sponsor.url }}">
-                        <img class="" src="{{ sponsor.foto.url }}"alt="">
+                        <img class="sponsor-foto" src="{{ sponsor.foto.url }}"alt="">
                     </a>
                 </figure>
             </li>

@@ -299,3 +299,7 @@ table.tblFikstur tbody tr td:last-child { text-align: left;}
 
 .footer-bottom { background: #1A1A1A;padding: 20px 0;}
 .footer-bottom p { font-size: 14px;color: #ffffff; }
+
+.sponsor-foto {
+    height: 40px;
+}

@@ -11,7 +11,7 @@
                 <div class="blog-text">
                     <h4>{{ haber.baslik }}</h4>
 
-                    <p>{{ haber.icerik|truncatechars:150 }}</p>
+                    <p>{{ haber.icerik|truncatechars:170 | safe }}</p>
 
                     <a href="{% url "haber_detay" haber.id %}"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
 

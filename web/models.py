@@ -35,7 +35,7 @@ class SiteAyarlar(models.Model):
 
 class Slider(models.Model):
     aciklama = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='slider')
+    foto = models.ImageField(upload_to='slider')
     sira = models.IntegerField(verbose_name='sıra')
 
     class Meta:
@@ -72,3 +72,36 @@ class Sponsorlar(models.Model):
     def __str__(self):
         return self.ad
 
+class Takimlar(models.Model):
+    takim_adi = models.CharField(max_length=100)
+    foto = models.ImageField('takimlar', default='takimlar/nologo.png')
+
+    class Meta:
+        verbose_name = 'takım'
+        verbose_name_plural = 'takımlar'
+
+    def __str__(self):
+        return self.takim_adi
+
+
+class Sezon(models.Model):
+    adi = models.CharField(max_length=100)
+
+    class Meta:
+        verbose_name = 'Sezon'
+        verbose_name_plural ='Sezonlar'
+
+    def __str__(self):
+        return  self.adi
+
+class Sezon_takimlar(models.Model):
+    sezon = models.ForeignKey(Sezon)
+    takim = models.ForeignKey(Takimlar)
+
+    class Meta:
+        verbose_name = 'Sezon Takım'
+        verbose_name_plural ='Sezonun Takımları'
+        unique_together = ('sezon','takim',)
+
+    def __str__(self):
+        return self.takim.takim_adi

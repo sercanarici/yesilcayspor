@@ -2,17 +2,20 @@
 
 {% block content_left %}
     <div class="blog-detay">
-                            <article>
-                                <img src="{{ haber.foto }}" />
-                                <div class="blog-text">
-                                    <h4>{{ haber.baslik }}</h4>
-                                    <p>{{ haber.icerik }}</p>
-                                    <div class="datetime">{{ haber.olusturulma_tarihi }}</div>
-                                </div>
-                            </article>
-                            <div class="tumHaberler">
-                                <a href=""><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
-                            </div>
-                        </div>
+        <article>
+            <img src="{{ haber.foto }}"/>
+
+            <div class="blog-text">
+                <h4>{{ haber.baslik }}</h4>
+
+                <p>{{ haber.icerik | safe }}</p>
+
+                <div class="datetime">{{ haber.olusturulma_tarihi }}</div>
+            </div>
+        </article>
+        <div class="tumHaberler">
+            <a href="{% url "haberler" %}"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
+        </div>
+    </div>
 {% endblock %}
 

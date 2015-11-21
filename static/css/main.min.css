@@ -94,19 +94,33 @@ body {
 }
 
 
-
+header {
+    background-color: #0E6154;
+}
 
 .header {
 position: relative;
 height: 100px;
 background: #fff;
+background-color: #0E6154;
+width: 1140px;
+margin-left: auto;
+margin-right: auto;
+
+}
+
+.header img {
+    width: 100%;
+    max-width: 441px;
 }
 
 .logoLeft {
 position: relative;
-width: 50%;
+width: 100%;
 float: left;
+background-color: #0E6154;
 }
+
 
 .logoRight {
 position: relative;

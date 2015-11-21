@@ -5,12 +5,11 @@
     <section>
         <div class="container">
             <div id="owl-demo" class="owl-carousel owl-theme">
-                <div class="item" style="background: url(static/img/slider/slider1.png) no-repeat;">
-                    <span>Yeni transferimiz Samuel Holmen yarın resmi sözleşme imzalayacak</span>
+                {% for slide in slides %}
+                <div class="item" style="background: url({{ slide.image.url }}) no-repeat;">
+                    <span>{{ slide.aciklama }}</span>
                 </div>
-                <div class="item" style="background: url(static/img/slider/slider2.png) no-repeat;">
-                    <span>Takımımızda Kayserispor maçının hazırlıkları tamamlandı</span>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>
@@ -21,7 +20,7 @@
         <h2>HABERLER</h2>
         {% for haber in haberler %}
             <article>
-                <img src="{{ haber.foto }}"/>
+                <img src="{{ haber.foto.url }}"/>
 
                 <div class="blog-text">
                     <h4>{{ haber.baslik }}</h4>
@@ -43,95 +42,28 @@
 {% block content_bottom %}
 <div class="oyuncularimiz">
     <div class="container">
-        <h2>FUTBOLCULARIMIZ</h2>
+        <h2>EFSANELER</h2>
 
         <div id="owl-players" class="owl-carousel owl-theme">
 
-            <div class="oyuncu item">
+            {% for efsane in efsaneler %}
+                <div class="oyuncu item">
                 <a href="">
                     <div class="oyuncu_resim">
                         <img alt=""
-                             src="http://media4.fcbarcelona.com/media/asset_publics/resources/000/179/174/original_rgb/mathieu_random_640x720.v1439302741.jpg"
+                             src="{{ efsane.foto.url }}"
                              title="Mathieu">
                     </div>
                     <div class="oyuncu_detay">
                         <p>
-                            <span class="formaNo">24</span>
-                            <span class="formaAd">Mathieu</span>
-                            <span class="formaMevki">Defender</span>
+                            <span class="formaNo">{{ efsane.forma_no }}</span>
+                            <span class="formaAd">{{ efsane.ad }}</span>
+                            <span class="formaMevki">{{ efsane.mevki }}</span>
                         </p>
                     </div>
                 </a>
             </div>
-
-            <div class="oyuncu item">
-                <a href="">
-                    <div class="oyuncu_resim">
-                        <img alt=""
-                             src="http://media4.fcbarcelona.com/media/asset_publics/resources/000/179/174/original_rgb/mathieu_random_640x720.v1439302741.jpg"
-                             title="Mathieu">
-                    </div>
-                    <div class="oyuncu_detay">
-                        <p>
-                            <span class="formaNo">24</span>
-                            <span class="formaAd">Mathieu</span>
-                            <span class="formaMevki">Defender</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="oyuncu item">
-                <a href="">
-                    <div class="oyuncu_resim">
-                        <img alt=""
-                             src="http://media4.fcbarcelona.com/media/asset_publics/resources/000/179/174/original_rgb/mathieu_random_640x720.v1439302741.jpg"
-                             title="Mathieu">
-                    </div>
-                    <div class="oyuncu_detay">
-                        <p>
-                            <span class="formaNo">24</span>
-                            <span class="formaAd">Mathieu</span>
-                            <span class="formaMevki">Defender</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="oyuncu item">
-                <a href="">
-                    <div class="oyuncu_resim">
-                        <img alt=""
-                             src="http://media4.fcbarcelona.com/media/asset_publics/resources/000/179/174/original_rgb/mathieu_random_640x720.v1439302741.jpg"
-                             title="Mathieu">
-                    </div>
-                    <div class="oyuncu_detay">
-                        <p>
-                            <span class="formaNo">24</span>
-                            <span class="formaAd">Mathieu</span>
-                            <span class="formaMevki">Defender</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-
-            <div class="oyuncu item">
-                <a href="">
-                    <div class="oyuncu_resim">
-                        <img alt=""
-                             src="http://media4.fcbarcelona.com/media/asset_publics/resources/000/179/174/original_rgb/mathieu_random_640x720.v1439302741.jpg"
-                             title="Mathieu">
-                    </div>
-                    <div class="oyuncu_detay">
-                        <p>
-                            <span class="formaNo">24</span>
-                            <span class="formaAd">Mathieu</span>
-                            <span class="formaMevki">Defender</span>
-                        </p>
-                    </div>
-                </a>
-            </div>
-
+            {% endfor %}
         </div>
     </div>
 </div>
@@ -139,36 +71,15 @@
     <div class="container">
         <h2>SPONSORLARIMIZ</h2>
         <ul class="row">
-            <li class="col-md-2">
-                <figure><a href="#"><img class=""
-                                         src="http://goalklub.chimpgroup.com/wp-content/uploads/home-logo-01.png"
-                                         alt=""></a></figure>
+            {% for sponsor in sponsorlar %}
+                <li class="col-md-2">
+                <figure>
+                    <a href="{{ sponsor.url }}">
+                        <img class="" src="{{ sponsor.foto.url }}"alt="">
+                    </a>
+                </figure>
             </li>
-            <li class="col-md-2">
-                <figure><a href="#"><img class=""
-                                         src="http://goalklub.chimpgroup.com/wp-content/uploads/home-logo-02.png"
-                                         alt=""></a></figure>
-            </li>
-            <li class="col-md-2">
-                <figure><a href="#"><img class=""
-                                         src="http://goalklub.chimpgroup.com/wp-content/uploads/home-logo-03.png"
-                                         alt=""></a></figure>
-            </li>
-            <li class="col-md-2">
-                <figure><a href="#"><img class=""
-                                         src="http://goalklub.chimpgroup.com/wp-content/uploads/home-logo-04.png"
-                                         alt=""></a></figure>
-            </li>
-            <li class="col-md-2">
-                <figure><a href="#"><img class=""
-                                         src="http://goalklub.chimpgroup.com/wp-content/uploads/home-logo-05.png"
-                                         alt=""></a></figure>
-            </li>
-            <li class="col-md-2">
-                <figure><a href="#"><img class=""
-                                         src="http://goalklub.chimpgroup.com/wp-content/uploads/home-logo-06.png"
-                                         alt=""></a></figure>
-            </li>
+            {% endfor %}
         </ul>
     </div>
 </div>

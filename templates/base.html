@@ -30,12 +30,7 @@
 <body>
 <header>
     <div class="header">
-        <div class="logoLeft">
-
-        </div>
-        <div class="logoRight">
-
-        </div>
+        <img src="{% static 'img/club/logo100.png' %}" alt="">
     </div>
     <nav class="navbar navbar-default">
         <div class="container">
@@ -61,8 +56,8 @@
                                 <li><a href="{% url "stadimiz" %}">Stadımız</a></li>
                                 <li><a href="{% url "tarihce" %}">Tarihçe</a></li>
                                 <li><a href="{% url "tesislerimiz" %}">Tesislerimiz</a></li>
-                                <li><a href="#">Başkanlarımız</a></li>
                                 <li><a href="#">Yönetim</a></li>
+                                <li><a href="#">Onur Kurulu</a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -71,11 +66,10 @@
                             <ul class="dropdown-menu">
                                 <li><a href="#">Teknik Heyet</a></li>
                                 <li><a href="#">Futbolcular</a></li>
-                                <li><a href="#">Antreman Progrmımız</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">TARAFTAR KÖŞESİ</a></li>
                         <li><a href="#">İLETİŞİM</a></li>
+                        <li><a href="#">NOSTALJİ</a></li>
                     </ul>
 
                 </div>
@@ -99,6 +93,7 @@
                     <div class="list-group">
                         <a href="#" class="list-group-item active">Tarihçe</a>
                         <a href="#" class="list-group-item">Başkanlarımız</a>
+                        <a href="#" class="list-group-item">Efsaneler</a>
                         <a href="#" class="list-group-item">Stadımız</a>
                         <a href="#" class="list-group-item">Tesislerimiz</a>
                         <a href="#" class="list-group-item">Yönetim</a>
@@ -244,14 +239,31 @@
                                 <td>3</td>
                                 <td>3</td>
                             </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>Erdoğmuşspor</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>Erdoğmuşspor</td>
+                                <td>1</td>
+                                <td>1</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>3</td>
+                            </tr>
                             </tbody>
                         </table>
                     </div>
-                    <div class="facebook_likebox">
-                        <iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fyesilcayspor&amp;width=360&amp;colorscheme=light&amp;connections=8&amp;stream=false&amp;header=false&amp;height=360"
-                                scrolling="no" frameborder="0"
-                                style="border:none; overflow:hidden; width:360px; height:213px;"
-                                allowtransparency="true"></iframe>
+                    <div class="facebook_likebox" style="display: none">
+                        <iframe></iframe>
                     </div>
                 </div>
             </div>
@@ -264,17 +276,6 @@
 {% endblock %}
 
 <footer>
-    <div class="footer-top">
-        <div class="container">
-            <ul class="social_link">
-                <li><a href="" title="" rel="" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="" title="" rel="" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                <li><a href="" title="" rel="" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                <li><a href="" title="" rel="" target="_blank"><i class="fa fa-youtube"></i></a></li>
-                <li><a href="" title="" rel="" target="_blank"><i class="fa fa-instagram"></i></a></li>
-            </ul>
-        </div>
-    </div>
     <div class="footer">
         <div class="container">
             <div class="fblock">
@@ -282,6 +283,7 @@
                 <ul class="fnav">
                     <li><a rel="bookmark" href="#" title="">Tarihçe</a></li>
                     <li><a rel="bookmark" href="#" title="">Başkanlarımız</a></li>
+                    <li><a rel="bookmark" href="#" title="">Efsaneler</a></li>
                     <li><a rel="bookmark" href="#" title="">Stadımız</a></li>
                     <li><a rel="bookmark" href="#" title="">Tesislerimiz</a></li>
                     <li><a rel="bookmark" href="#" title="">Yönetim</a></li>

@@ -1,15 +1,19 @@
 from django.shortcuts import render
-from web.models import Haber, Tarihce, SiteAyarlar
+from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar
 
 
 def index(request):
     haberler = Haber.objects.all()[:5]
-    return render(request,"index.html",locals())
+    slides = Slider.objects.all().order_by('sira')
+    efsaneler = Efsaneler.objects.all().order_by('sira')
+    sponsorlar = Sponsorlar.objects.all()
+    return render(request, "index.html", locals())
 
 
 def fikstur(request):
     ayar = SiteAyarlar.objects.all()
     frame = ayar[0].fikstur_link
+
     return render(request, "fikstur.html", locals())
 
 
@@ -24,7 +28,7 @@ def haber_detay(request, haber_id):
 
 
 def stadimiz(request):
-    return render(request,"stadimiz.html",locals())
+    return render(request, "stadimiz.html", locals())
 
 
 def tarihce(request):

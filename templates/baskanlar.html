@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content_left %}
+    <div class="page-detay">
+        <h2>Başkanlarımız</h2>
+
+        {% for baskan in baskanlar %}
+            <div class="col-md-4">
+                <div class="baskan item">
+                <a href="">
+                    <div class="baskan_resim">
+                        <img alt=""
+                             src="{{ baskan.foto.url }}"
+                             title="Mathieu">
+                    </div>
+                    <div class="baskan_detay">
+                        <p>
+                            <span class="formaAd">{{ baskan.ad }}</span>
+                            <span class="formaMevki">{{ baskan.gorev_yili }}</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+

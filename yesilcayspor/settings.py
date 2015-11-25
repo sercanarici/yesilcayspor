@@ -123,6 +123,8 @@ SITE_ID = 1
 
 CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, 'media/uploads')
 
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
 
 
 

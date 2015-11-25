@@ -303,3 +303,13 @@ table.tblFikstur tbody tr td:last-child { text-align: left;}
 .sponsor-foto {
     height: 40px;
 }
+
+.baskan { background-color: #FFF; width: 200px; }
+.baskan_resim { border: .0625rem solid #B4B8B8; border-bottom: none; }
+.baskan_resim img { display: block; width: 100%; }
+.baskan_detay {padding: 0; color: #FFF; height: 70px;}
+.baskan_detay p { margin: 0; text-align: center;}
+.baskan_detay p .formaNo { float: left; margin-right: .75rem; padding: 1.625rem 0rem; text-align: center; width: 3.125rem; font-weight: 900; background-color: #015120;    font-size: 2rem; display: block; }
+.baskan_detay p .formaAd { padding-top: .875rem; font-weight: 500; font-size: 1.25rem; display: block; line-height: 1.5rem; }
+.baskan_detay p .formaMevki { line-height: 1.125rem; font-size: .875rem; display: block; font-weight: 400; text-transform: uppercase; }
+

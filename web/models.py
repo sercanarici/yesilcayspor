@@ -74,7 +74,7 @@ class Sponsorlar(models.Model):
 
 class Takimlar(models.Model):
     takim_adi = models.CharField(max_length=100)
-    foto = models.ImageField('takimlar', default='takimlar/nologo.png')
+    foto = models.ImageField(upload_to='takimlar', default='takimlar/nologo.png')
 
     class Meta:
         verbose_name = 'takım'
@@ -105,3 +105,18 @@ class Sezon_takimlar(models.Model):
 
     def __str__(self):
         return self.takim.takim_adi
+
+
+class Baskanlar(models.Model):
+    ad = models.CharField(max_length=100)
+    gorev_yili = models.CharField(max_length=20)
+    foto = models.ImageField(upload_to='baskanlar', default='baskanlar/default.png')
+    sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
+
+    class Meta:
+        verbose_name = "Başkan"
+        verbose_name_plural = 'Başkanlar'
+
+    def __str__(self):
+        return self.ad
+

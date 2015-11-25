@@ -14,9 +14,11 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf import settings
-from django.conf.urls import include, url, patterns
+from django.conf.urls import include, url, patterns, handler404
 from django.contrib import admin
-from web.views import index, fikstur, haber_detay, stadimiz, tesislerimiz, haberler, tarihce
+from web.views import *
+
+handler404 = 'web.views.bad_request'
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
@@ -27,6 +29,14 @@ urlpatterns = [
     url(r'^stadimiz$', stadimiz, name='stadimiz'),
     url(r'^tarihce$', tarihce, name='tarihce'),
     url(r'^tesislerimiz$', tesislerimiz, name='tesislerimiz'),
+    url(r'^baskanlar$', baskanlar, name='baskanlar'),
+    url(r'^efsaneler$', efsaneler, name='efsaneler'),
+    url(r'^yonetim$', yonetim, name='yonetim'),
+    url(r'^basvuru$', basvuru, name='basvuru'),
+    url(r'^teknikheyet$', teknikheyet, name='teknikheyet'),
+    url(r'^futbolcular$', futbolcular, name='futbolcular'),
+    url(r'^nostalji$', nostalji, name='nostalji'),
+    url(r'^iletisim$', iletisim, name='iletisim'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
 

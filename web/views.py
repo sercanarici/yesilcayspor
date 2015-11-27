@@ -1,5 +1,6 @@
 from django.shortcuts import render, render_to_response
-from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar
+from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar, TeknikHeyet, Yonetim
+from web.puan_durumu import PuanDurum
 from django.shortcuts import RequestContext
 
 
@@ -14,6 +15,7 @@ def index(request):
     slides = Slider.objects.all().order_by('sira')
     efsaneler = Efsaneler.objects.all().order_by('sira')
     sponsorlar = Sponsorlar.objects.all()
+    puan_tablosu = PuanDurum.puan_durumu()
     return render(request, "index.html", locals())
 
 
@@ -22,7 +24,7 @@ def fikstur(request):
     frame = ''
     try:
         frame = ayar[0].fikstur_link
-    except AttributeError:
+    except IndexError:
         print("Site ayarlarında fikstür linkini giriniz.")
 
     return render(request, "fikstur.html", locals())
@@ -44,7 +46,12 @@ def stadimiz(request):
 
 def tarihce(request):
     ayar = SiteAyarlar.objects.all()
-    icerik = ayar[0].tarihce
+    icerik = ''
+    try:
+        icerik = ayar[0].tarihce
+    except IndexError:
+        print("Site ayarlarında icerik alanını doldurunuz.")
+
     return render(request, "tarihce.html", locals())
 
 
@@ -57,24 +64,24 @@ def baskanlar(request):
     return render(request, "baskanlar.html", locals())
 
 
+def teknikheyet(request):
+    teknikheyet = TeknikHeyet.objects.all().order_by('sira')
+    return render(request, "teknik-heyet.html", locals())
+
+
 def efsaneler(request):
-    return render(request, "404.html", locals())
+    efsaneler = Efsaneler.objects.all().order_by('sira')
+    return render(request, "efsaneler.html", locals())
 
 
 def yonetim(request):
-    return render(request, "404.html", locals())
+    yonetim = Yonetim.objects.all().order_by('sira')
+    return render(request, "yonetim.html", locals())
 
 
 def basvuru(request):
     return render(request, "404.html", locals())
 
-
-def teknikheyet(request):
-    return render(request, "404.html", locals())
-
-
-def futbolcular(request):
-    return render(request, "404.html", locals())
 
 def futbolcular(request):
     return render(request, "404.html", locals())

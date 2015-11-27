@@ -34,8 +34,15 @@ class TakimAdmin(BaseAdmin):
 class SezonTakimAdmin(admin.ModelAdmin):
     list_display = ('takim','sezon',)
 
+
 class BaskanAdmin(BaseAdmin):
     list_display = ('ad','sira', 'display_photo', )
+
+class TeknikHeyetAdmin(BaseAdmin):
+    list_display = ('ad', 'gorev', 'sira', 'display_photo',)
+
+class YonetimAdmin(BaseAdmin):
+    list_display = ('ad', 'gorev', 'sira', 'display_photo',)
 
 
 admin.site.register(Haber)
@@ -47,3 +54,5 @@ admin.site.register(Takimlar, TakimAdmin)
 admin.site.register(Sezon)
 admin.site.register(Sezon_takimlar, SezonTakimAdmin)
 admin.site.register(Baskanlar, BaskanAdmin)
+admin.site.register(TeknikHeyet, TeknikHeyetAdmin)
+admin.site.register(Yonetim, YonetimAdmin)

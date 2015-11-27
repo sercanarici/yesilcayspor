@@ -304,7 +304,7 @@ table.tblFikstur tbody tr td:last-child { text-align: left;}
     height: 40px;
 }
 
-.baskan { background-color: #FFF; width: 200px; }
+.baskan { background-color: #FFF; width: 150px; }
 .baskan_resim { border: .0625rem solid #B4B8B8; border-bottom: none; }
 .baskan_resim img { display: block; width: 100%; }
 .baskan_detay {padding: 0; color: #FFF; height: 70px;}

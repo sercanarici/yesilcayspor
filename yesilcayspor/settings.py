@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    #'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -41,6 +42,8 @@ INSTALLED_APPS = (
     'ckeditor',
     'ckeditor_uploader',
     'web',
+    'filer',
+    'easy_thumbnails',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,6 +114,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+#STATIC_ROOT= os.path.join(BASE_DIR, 'static')
+
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
@@ -124,6 +129,20 @@ SITE_ID = 1
 CKEDITOR_UPLOAD_PATH = os.path.join(BASE_DIR, 'media/uploads')
 
 CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+
+#django-filer için
+THUMBNAIL_PROCESSORS = (
+    'easy_thumbnails.processors.colorspace',
+    'easy_thumbnails.processors.autocrop',
+    #'easy_thumbnails.processors.scale_and_crop',
+    'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+    'easy_thumbnails.processors.filters',
+)
+
+#grappelli için
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#    "django.core.context_processors.request",
+#)
 
 
 

@@ -21,6 +21,7 @@ from web.views import *
 handler404 = 'web.views.bad_request'
 
 urlpatterns = [
+    #url(r'^grappelli/', include('grappelli.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', index, name='home'),
     url(r'^fikstur$', fikstur, name='fikstur'),
@@ -38,6 +39,7 @@ urlpatterns = [
     url(r'^nostalji$', nostalji, name='nostalji'),
     url(r'^iletisim$', iletisim, name='iletisim'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+    url(r'^filer/', include('filer.urls')),
 ]
 
 if settings.DEBUG:

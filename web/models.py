@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
+from filer.fields.image import FilerImageField
 
 
 class Haber(models.Model):
@@ -10,7 +11,7 @@ class Haber(models.Model):
     icerik = RichTextUploadingField()
     olusturulma_tarihi = models.DateTimeField(auto_now_add=True, auto_now=False)
     kullanici = models.ForeignKey(User)
-    foto = models.ImageField(upload_to='haber', blank=True)
+    foto = FilerImageField(null=True, blank=True, related_name='haber_foto')
 
     def __str__(self):
         return self.baslik
@@ -35,7 +36,7 @@ class SiteAyarlar(models.Model):
 
 class Slider(models.Model):
     aciklama = models.CharField(max_length=200)
-    foto = models.ImageField(upload_to='slider')
+    foto = FilerImageField(null=True, blank=True, related_name='slider_foto', help_text='Düzgün görünebilmesi için 1184x400 boyutlarında olması gerekir.')
     sira = models.IntegerField(verbose_name='sıra')
 
     class Meta:
@@ -47,10 +48,9 @@ class Slider(models.Model):
 
 class Efsaneler(models.Model):
     ad = models.CharField(max_length=100)
-    forma_no = models.CharField(max_length=3, blank=True)
     mevki = models.CharField(max_length=20, blank=True)
     sira = models.IntegerField(verbose_name='sıra', blank=True)
-    foto = models.ImageField(upload_to='efsaneler')
+    foto = FilerImageField(null=True, blank=True, related_name='efsane_foto')
 
     class Meta:
         verbose_name = "Efsane"
@@ -62,7 +62,7 @@ class Efsaneler(models.Model):
 
 class Sponsorlar(models.Model):
     ad = models.CharField(max_length=50)
-    foto = models.ImageField(upload_to='sponsor')
+    foto = FilerImageField(null=True, blank=True, related_name='sponsor_foto')
     url = models.CharField(max_length=255, default='#')
 
     class Meta:
@@ -74,7 +74,8 @@ class Sponsorlar(models.Model):
 
 class Takimlar(models.Model):
     takim_adi = models.CharField(max_length=100)
-    foto = models.ImageField(upload_to='takimlar', default='takimlar/nologo.png')
+    foto = FilerImageField(null=True, blank=True, related_name='takim_foto')
+    #foto = models.ImageField(upload_to='takimlar', default='takimlar/nologo.png')
 
     class Meta:
         verbose_name = 'takım'
@@ -110,7 +111,8 @@ class Sezon_takimlar(models.Model):
 class Baskanlar(models.Model):
     ad = models.CharField(max_length=100)
     gorev_yili = models.CharField(max_length=20)
-    foto = models.ImageField(upload_to='baskanlar', default='baskanlar/default.png')
+    #foto = models.ImageField(upload_to='baskanlar', default='baskanlar/default.png')
+    foto = FilerImageField(null=True, blank=True, related_name='baskan_foto')
     sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
 
     class Meta:
@@ -120,3 +122,30 @@ class Baskanlar(models.Model):
     def __str__(self):
         return self.ad
 
+class TeknikHeyet(models.Model):
+    ad = models.CharField(max_length=50)
+    #foto = models.ImageField(upload_to='teknikheyet', default='teknikheyet/default.png')
+    foto = FilerImageField(null=True, blank=True, related_name='gorevli_foto')
+    sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
+    gorev = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = 'Görevli'
+        verbose_name_plural = "Teknik Heyet"
+
+    def __str__(self):
+        return self.ad
+
+class Yonetim(models.Model):
+    ad = models.CharField(max_length=50)
+    #foto = models.ImageField(upload_to='yonetim', default='yonetim/default.png')
+    foto = FilerImageField(null=True, blank=True, related_name='yonetici_foto')
+    sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
+    gorev = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = 'Yönetici'
+        verbose_name_plural = "Yönetim"
+
+    def __str__(self):
+        return self.ad

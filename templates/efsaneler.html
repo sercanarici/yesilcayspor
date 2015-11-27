@@ -2,21 +2,21 @@
 
 {% block content_left %}
     <div class="page-detay">
-        <h2>Başkanlarımız</h2>
+        <h2>Efsaneler</h2>
 
-        {% for baskan in baskanlar %}
+        {% for efsane in efsaneler %}
             <div class="col-md-3">
                 <div class="baskan item">
                 <a href="">
                     <div class="baskan_resim">
                         <img alt=""
-                             src="{{ baskan.foto.url }}"
+                             src="{{ efsane.foto.url }}"
                              title="Mathieu">
                     </div>
                     <div class="baskan_detay">
                         <p>
-                            <span class="formaAd">{{ baskan.ad }}</span>
-                            <span class="formaMevki">{{ baskan.gorev_yili }}</span>
+                            <span class="formaAd">{{ efsane.ad }}</span>
+                            <span class="formaMevki">{{ efsane.mevki }}</span>
                         </p>
                     </div>
                 </a>

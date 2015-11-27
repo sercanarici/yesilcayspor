@@ -6,9 +6,9 @@
         <div class="container">
             <div id="owl-demo" class="owl-carousel owl-theme">
                 {% for slide in slides %}
-                <div class="item" style="background: url({{ slide.foto.url }}) no-repeat;">
-                    <span>{{ slide.aciklama }}</span>
-                </div>
+                    <div class="item" style="background: url({{ slide.foto.url }}) no-repeat;">
+                        <span>{{ slide.aciklama }}</span>
+                    </div>
                 {% endfor %}
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="blog-text">
                     <h4>{{ haber.baslik }}</h4>
 
-                    <p>{{ haber.icerik|truncatechars:150 }}</p>
+                    <p>{{ haber.icerik|truncatechars:150 | safe }}</p>
 
                     <a href="{% url "haber_detay" haber.id %}"><i class="fa fa-share fa-fw"></i>haberin devamı..</a>
 
@@ -36,52 +36,123 @@
         <div class="tumHaberler">
             <a href="{% url "haberler" %}"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
         </div>
+
+        <div class="puanList">
+            <table class="table table-striped puanDurumu">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Takım</th>
+                    <th>O</th>
+                    <th>G</th>
+                    <th>B</th>
+                    <th>M</th>
+                    <th>AV</th>
+                    <th>P</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for list in puan_tablosu %}
+                    <tr>
+                    {% for item in list %}
+                        <td>{{ item }}</td>
+                    {% endfor %}
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+
+        <div class="puanList">
+            <table class="table table-striped puanDurumu">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Takım</th>
+                    <th>O</th>
+                    <th>G</th>
+                    <th>B</th>
+                    <th>M</th>
+                    <th>AV</th>
+                    <th>P</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Yeşilçayspor</td>
+                    <td>13</td>
+                    <td>13</td>
+                    <td>10</td>
+                    <td>10</td>
+                    <td>33</td>
+                    <td>33</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Gedizgücü</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>0</td>
+                    <td>3</td>
+                    <td>3</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
     </div>
 {% endblock %}
 
 {% block content_bottom %}
-<div class="oyuncularimiz">
-    <div class="container">
-        <h2>EFSANELER</h2>
-        <div id="owl-players" class="owl-carousel owl-theme">
+    <div class="oyuncularimiz">
+        <div class="container">
+            <h2>EFSANELER</h2>
 
-            {% for efsane in efsaneler %}
-                <div class="oyuncu item">
-                <a href="">
-                    <div class="oyuncu_resim">
-                        <img alt=""
-                             src="{{ efsane.foto.url }}"
-                             title="Mathieu">
+            <div id="owl-players" class="owl-carousel owl-theme">
+
+                {% for efsane in efsaneler %}
+                    <div class="oyuncu item">
+                        <a href="">
+                            <div class="oyuncu_resim">
+                                <img alt=""
+                                     src="{{ efsane.foto.url }}"
+                                     title="Mathieu">
+                            </div>
+                            <div class="oyuncu_detay">
+                                <p>
+                                    <span class="formaNo">{{ efsane.forma_no }}</span>
+                                    <span class="formaAd">{{ efsane.ad }}</span>
+                                    <span class="formaMevki">{{ efsane.mevki }}</span>
+                                </p>
+                            </div>
+                        </a>
                     </div>
-                    <div class="oyuncu_detay">
-                        <p>
-                            <span class="formaNo">{{ efsane.forma_no }}</span>
-                            <span class="formaAd">{{ efsane.ad }}</span>
-                            <span class="formaMevki">{{ efsane.mevki }}</span>
-                        </p>
-                    </div>
-                </a>
+                {% endfor %}
             </div>
-            {% endfor %}
         </div>
     </div>
-</div>
-<div class="sponsor">
-    <div class="container">
-        <h2>SPONSORLARIMIZ</h2>
-        <ul class="row">
-            {% for sponsor in sponsorlar %}
-                <li class="col-md-2">
-                <figure>
-                    <a href="{{ sponsor.url }}">
-                        <img class="sponsor-foto" src="{{ sponsor.foto.url }}"alt="">
-                    </a>
-                </figure>
-            </li>
-            {% endfor %}
-        </ul>
+    <div class="sponsor">
+        <div class="container">
+            <h2>SPONSORLARIMIZ</h2>
+            <ul class="row">
+                {% for sponsor in sponsorlar %}
+                    <li class="col-md-2">
+                        <figure>
+                            <a href="{{ sponsor.url }}">
+                                <img class="sponsor-foto" src="{{ sponsor.foto.url }}" alt="">
+                            </a>
+                        </figure>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-</div>
 {% endblock %}
 
 

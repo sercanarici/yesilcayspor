@@ -138,7 +138,6 @@ class TeknikHeyet(models.Model):
 
 class Yonetim(models.Model):
     ad = models.CharField(max_length=50)
-    #foto = models.ImageField(upload_to='yonetim', default='yonetim/default.png')
     foto = FilerImageField(null=True, blank=True, related_name='yonetici_foto')
     sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
     gorev = models.CharField(max_length=50)
@@ -146,6 +145,20 @@ class Yonetim(models.Model):
     class Meta:
         verbose_name = 'Yönetici'
         verbose_name_plural = "Yönetim"
+
+    def __str__(self):
+        return self.ad
+
+
+class Futbolcular(models.Model):
+    ad = models.CharField(max_length=50)
+    foto = FilerImageField(null=True, blank=True, related_name='futbolcu_foto')
+    sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
+    mevki = models.CharField(max_length=50)
+
+    class Meta:
+        verbose_name = 'Futbolcu'
+        verbose_name_plural = "Futbolcular"
 
     def __str__(self):
         return self.ad

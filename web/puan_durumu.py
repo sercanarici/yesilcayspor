@@ -1,11 +1,20 @@
 from bs4 import BeautifulSoup
 import requests
+from web.models import SiteAyarlar
 
 
 class PuanDurum(object):
     @staticmethod
     def puan_durumu():
-        url = 'http://fikstur.kutahyaaskf.org.tr/lmo.php?todo=&file=GED%DDZ-%20EMET-%20H%DDSARCIK%20.%20AMAT.l98'
+        ayar = SiteAyarlar.objects.all()
+        url = ''
+        try:
+            url = ayar[0].fikstur_link
+        except IndexError:
+            print("Site ayarlarında fikstür linkini giriniz.")
+
+
+        SiteAyarlar.objects.all()
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         tables = soup.findAll("table", class_="lmoInner")

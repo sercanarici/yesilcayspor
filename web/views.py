@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar, TeknikHeyet, Yonetim
+from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar, TeknikHeyet, Yonetim, Futbolcular
 from web.puan_durumu import PuanDurum
 from django.shortcuts import RequestContext
 
@@ -79,12 +79,14 @@ def yonetim(request):
     return render(request, "yonetim.html", locals())
 
 
+def futbolcular(request):
+    futbolcular = Futbolcular.objects.all().order_by('sira')
+    return render(request, "futbolcular.html", locals())
+
+
 def basvuru(request):
     return render(request, "404.html", locals())
 
-
-def futbolcular(request):
-    return render(request, "404.html", locals())
 
 def nostalji(request):
     return render(request, "404.html", locals())

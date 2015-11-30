@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content_left %}
+    <div class="page-detay">
+        <h2>Futbolcular</h2>
+
+        {% for futblocu in futbolcular %}
+            <div class="col-md-3">
+                <div class="baskan item">
+                <a href="">
+                    <div class="baskan_resim">
+                        <img alt=""
+                             src="{{ futblocu.foto.url }}"
+                             title="Mathieu">
+                    </div>
+                    <div class="baskan_detay">
+                        <p>
+                            <span class="formaAd">{{ futblocu.ad }}</span>
+                            <span class="formaMevki">{{ futblocu.mevki }}</span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+

@@ -3,16 +3,16 @@
 
 {% block slider %}
     <section>
-        <div class="container">
-            <div id="owl-demo" class="owl-carousel owl-theme">
-                {% for slide in slides %}
+            <div class="container">
+                <div id="owl-demo" class="owl-carousel owl-theme">
+                    {% for slide in slides %}
                     <div class="item" style="background: url({{ slide.foto.url }}) no-repeat;">
                         <span>{{ slide.aciklama }}</span>
                     </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 {% endblock %}
 
 {% block content_left %}
@@ -36,6 +36,7 @@
         <div class="tumHaberler">
             <a href="{% url "haberler" %}"><i class="fa fa-share fa-fw"></i>Tüm Haberler</a>
         </div>
+
     </div>
 {% endblock %}
 
@@ -56,7 +57,6 @@
                             </div>
                             <div class="oyuncu_detay">
                                 <p>
-                                    <span class="formaNo">{{ efsane.forma_no }}</span>
                                     <span class="formaAd">{{ efsane.ad }}</span>
                                     <span class="formaMevki">{{ efsane.mevki }}</span>
                                 </p>
@@ -74,7 +74,7 @@
                 {% for sponsor in sponsorlar %}
                     <li class="col-md-2">
                         <figure>
-                            <a href="{{ sponsor.url }}">
+                            <a href="{{ sponsor.url }}" target="_blank">
                                 <img class="sponsor-foto" src="{{ sponsor.foto.url }}" alt="">
                             </a>
                         </figure>

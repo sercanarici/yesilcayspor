@@ -26,7 +26,7 @@ time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    /* font: inherit; */
     vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -157,7 +157,7 @@ background-color: #ffcc00;
 
 
 #owl-fikstur { position: relative;}
-#owl-fikstur .item img { display: block; width: 100%; height: auto; }
+#owl-fikstur .item img { display: block; width: 80px; height: 80px;}
 #owl-fikstur .owl-controls .owl-buttons div { position: absolute; }
 #owl-fikstur .owl-controls .owl-buttons .owl-prev { left: 15px; bottom: -48px; background: transparent; cursor: pointer; }
 #owl-fikstur .owl-controls .owl-buttons .owl-next { right: 15px; bottom: -48px; background: transparent; cursor: pointer; }
@@ -198,7 +198,7 @@ background-color: #ffcc00;
 .page-detay { position: relative; padding: 10px 10px 0; box-shadow: 0 1px 1px 0 rgba(0,0,0,.2); background: #fff;overflow: hidden; }
 .page-detay h2 { margin: 14px 0 10px 2px; font-weight: 500; text-transform: uppercase; padding-top: .375rem; line-height: 1.375rem; font-size: 1.125rem; color: #333; font-family: 'proxima_nova_bold';}
 .page-detay h2::before { width: 40px; height: 3px; background-color: #009850; content: ''; display: block; position: relative; top: -.1875rem; }
-.page-detay img.ref { border: 1px solid #bfbfbf; padding: 3px;margin-bottom: 15px; }
+.page-detay img.ref { border: 1px solid #bfbfbf; padding: 3px;margin-bottom: 15px; width: 150px; height: 100px; }
 .page-detay p { color: #444; font-size: 15px;line-height: 18px;padding: 0 0 10px; }
 .page-detay ul li { float: left; }
 
@@ -276,8 +276,8 @@ table.tblFikstur tbody tr td:last-child { text-align: left;}
 .oyuncu_detay { background-color: #009850; padding: 0; color: #FFF; height: 70px;}
 .oyuncu_detay p { margin: 0; }
 .oyuncu_detay p .formaNo { float: left; margin-right: .75rem; padding: 1.625rem 0rem; text-align: center; width: 3.125rem; font-weight: 900; background-color: #015120;    font-size: 2rem; display: block; }
-.oyuncu_detay p .formaAd { padding-top: .875rem; font-weight: 500; font-size: 1.25rem; display: block; line-height: 1.5rem; }
-.oyuncu_detay p .formaMevki { line-height: 1.125rem; font-size: .875rem; display: block; font-weight: 400; text-transform: uppercase; }
+.oyuncu_detay p .formaAd { padding-top: .875rem; font-weight: 500; font-size: 1.25rem; display: block; line-height: 1.5rem; text-align: center }
+.oyuncu_detay p .formaMevki { line-height: 1.125rem; font-size: .875rem; display: block; font-weight: 400; text-transform: uppercase; text-align: center}
 
 .sponsor { position: relative;padding: 60px 0;}
 .sponsor h2 { margin-bottom: 20px; font-weight: 500; text-transform: uppercase; padding-top: .375rem; line-height: 1.375rem; font-size: 1.125rem; color: #333; }
@@ -310,6 +310,13 @@ table.tblFikstur tbody tr td:last-child { text-align: left;}
 .baskan_detay {padding: 0; color: #FFF; height: 70px;}
 .baskan_detay p { margin: 0; text-align: center;}
 .baskan_detay p .formaNo { float: left; margin-right: .75rem; padding: 1.625rem 0rem; text-align: center; width: 3.125rem; font-weight: 900; background-color: #015120;    font-size: 2rem; display: block; }
-.baskan_detay p .formaAd { padding-top: .875rem; font-weight: 500; font-size: 1.25rem; display: block; line-height: 1.5rem; }
+.baskan_detay p .formaAd { padding-top: .875rem; font-weight: 500; font-size: 1rem; display: block; line-height: 1.5rem; }
 .baskan_detay p .formaMevki { line-height: 1.125rem; font-size: .875rem; display: block; font-weight: 400; text-transform: uppercase; }
+
+article img {
+    max-width: 710px;
+    height: auto;
+}
+
+
 

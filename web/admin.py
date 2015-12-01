@@ -44,8 +44,20 @@ class TeknikHeyetAdmin(BaseAdmin):
 class YonetimAdmin(BaseAdmin):
     list_display = ('ad', 'gorev', 'sira', 'display_photo',)
 
+class FutbolcuAdmin(BaseAdmin):
+    list_display = ('ad', 'mevki', 'sira', 'display_photo',)
 
-admin.site.register(Haber)
+class SonuclarAdmin(admin.ModelAdmin):
+    list_display = ('sezon', 'hafta', 'ev_sahibi', 'ev_sahibi_skor', 'misafir', 'misafir_skor',)
+
+class GaleriAdmin(BaseAdmin):
+    list_display = ('display_photo',)
+
+class HaberAdmin(admin.ModelAdmin):
+    list_display = ('baslik','olusturulma_tarihi',)
+
+
+admin.site.register(Haber, HaberAdmin)
 admin.site.register(SiteAyarlar)
 admin.site.register(Slider, SliderAdmin)
 admin.site.register(Efsaneler, EfsaneAdmin)
@@ -56,3 +68,8 @@ admin.site.register(Sezon_takimlar, SezonTakimAdmin)
 admin.site.register(Baskanlar, BaskanAdmin)
 admin.site.register(TeknikHeyet, TeknikHeyetAdmin)
 admin.site.register(Yonetim, YonetimAdmin)
+admin.site.register(Sonuclar, SonuclarAdmin)
+admin.site.register(Futbolcular, FutbolcuAdmin)
+admin.site.register(StadFotolari, GaleriAdmin)
+admin.site.register(TesisFotolari, GaleriAdmin)
+admin.site.register(NostaljiFotolari, GaleriAdmin)

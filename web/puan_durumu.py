@@ -44,6 +44,7 @@ class PuanDurum(object):
             temiz_liste = [x for x in sublist if x is not None and x.strip().replace(':', '')]
             temiz_liste.pop(6)
             temiz_liste.pop(6)
+            #temiz_liste = [x.lower() for x in temiz_liste]
             result.append(temiz_liste)
 
         return result

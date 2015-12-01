@@ -1,7 +1,8 @@
 from django.shortcuts import render, render_to_response
-from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar, TeknikHeyet, Yonetim, Futbolcular
+from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar, TeknikHeyet, Yonetim, Futbolcular, Sonuclar, StadFotolari, TesisFotolari, NostaljiFotolari
 from web.puan_durumu import PuanDurum
 from django.shortcuts import RequestContext
+
 
 
 def bad_request(request):
@@ -15,7 +16,6 @@ def index(request):
     slides = Slider.objects.all().order_by('sira')
     efsaneler = Efsaneler.objects.all().order_by('sira')
     sponsorlar = Sponsorlar.objects.all()
-    puan_tablosu = PuanDurum.puan_durumu()
     return render(request, "index.html", locals())
 
 
@@ -31,7 +31,7 @@ def fikstur(request):
 
 
 def haberler(request):
-    haberler = Haber.objects.all()
+    haberler = Haber.objects.all().order_by('olusturulma_tarihi')
     return render(request, "haberler.html", locals())
 
 
@@ -41,6 +41,7 @@ def haber_detay(request, haber_id):
 
 
 def stadimiz(request):
+    fotolar = StadFotolari.objects.all()
     return render(request, "stadimiz.html", locals())
 
 
@@ -56,6 +57,7 @@ def tarihce(request):
 
 
 def tesislerimiz(request):
+    fotolar = TesisFotolari.objects.all()
     return render(request, "tesislerimiz.html", locals())
 
 
@@ -84,13 +86,24 @@ def futbolcular(request):
     return render(request, "futbolcular.html", locals())
 
 
+def iletisim(request):
+    ayar = SiteAyarlar.objects.all()
+    icerik = ''
+    try:
+        icerik = ayar[0].iletisim
+    except IndexError:
+        icerik ="Site ayarlarında iletisim alanını doldurunuz."
+
+    return render(request, "iletisim.html", locals())
+
+
+def nostalji_fotolar(request):
+    fotolar = NostaljiFotolari.objects.all()
+    return render(request, "nostalji-galeri.html", locals())
+
+
 def basvuru(request):
     return render(request, "404.html", locals())
 
 
-def nostalji(request):
-    return render(request, "404.html", locals())
-
-def iletisim(request):
-    return render(request, "404.html", locals())
 

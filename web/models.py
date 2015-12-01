@@ -25,6 +25,7 @@ class SiteAyarlar(models.Model):
     site = models.OneToOneField(Site)
     fikstur_link = models.URLField(blank=True)
     tarihce = RichTextField()
+    iletisim = RichTextUploadingField()
 
     class Meta:
         verbose_name = "Site Ayarları"
@@ -45,6 +46,7 @@ class Slider(models.Model):
 
     def __str__(self):
         return self.aciklama
+
 
 class Efsaneler(models.Model):
     ad = models.CharField(max_length=100)
@@ -72,10 +74,10 @@ class Sponsorlar(models.Model):
     def __str__(self):
         return self.ad
 
+
 class Takimlar(models.Model):
     takim_adi = models.CharField(max_length=100)
-    foto = FilerImageField(null=True, blank=True, related_name='takim_foto')
-    #foto = models.ImageField(upload_to='takimlar', default='takimlar/nologo.png')
+    foto = FilerImageField(null=True, blank=True)
 
     class Meta:
         verbose_name = 'takım'
@@ -94,6 +96,7 @@ class Sezon(models.Model):
 
     def __str__(self):
         return  self.adi
+
 
 class Sezon_takimlar(models.Model):
     sezon = models.ForeignKey(Sezon)
@@ -122,6 +125,7 @@ class Baskanlar(models.Model):
     def __str__(self):
         return self.ad
 
+
 class TeknikHeyet(models.Model):
     ad = models.CharField(max_length=50)
     #foto = models.ImageField(upload_to='teknikheyet', default='teknikheyet/default.png')
@@ -135,6 +139,7 @@ class TeknikHeyet(models.Model):
 
     def __str__(self):
         return self.ad
+
 
 class Yonetim(models.Model):
     ad = models.CharField(max_length=50)
@@ -162,3 +167,55 @@ class Futbolcular(models.Model):
 
     def __str__(self):
         return self.ad
+
+
+class Sonuclar(models.Model):
+    sezon = models.ForeignKey(Sezon)
+    hafta = models.IntegerField()
+    ev_sahibi = models.ForeignKey(Sezon_takimlar, related_name='sonuc_evsahibi')
+    ev_sahibi_skor = models.IntegerField()
+    misafir = models.ForeignKey(Sezon_takimlar, related_name='sonuc_misafir')
+    misafir_skor = models.IntegerField()
+
+
+    class Meta:
+        verbose_name = 'Sonuç'
+        verbose_name_plural= 'Sonuçlar'
+        unique_together =(("ev_sahibi", "misafir"),)
+
+    def __str__(self):
+        return str(self.hafta)
+
+
+class StadFotolari(models.Model):
+    foto = FilerImageField(related_name='stad_fotolari')
+
+    class Meta:
+        verbose_name ="Stad Fotoğrafı"
+        verbose_name_plural ="Stad Fotoğrafları"
+
+    def __str__(self):
+        return self.foto.name
+
+
+class TesisFotolari(models.Model):
+    foto = FilerImageField(related_name='tesis_fotolari')
+
+    class Meta:
+        verbose_name ="Tesis Fotoğrafı"
+        verbose_name_plural ="Tesis Fotoğrafları"
+
+    def __str__(self):
+        return self.foto.name
+
+
+class NostaljiFotolari(models.Model):
+    foto = FilerImageField(related_name='nostalji_fotolari')
+
+    class Meta:
+        verbose_name ="Nostalji Fotoğrafı"
+        verbose_name_plural ="Nostalji Fotoğrafları"
+
+    def __str__(self):
+        return self.foto.name
+

@@ -31,7 +31,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
-    #'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -72,6 +71,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'web.context_processors.mac_sonuclar',
+                'web.context_processors.puan_durum',
             ],
         },
     },
@@ -139,10 +140,6 @@ THUMBNAIL_PROCESSORS = (
     'easy_thumbnails.processors.filters',
 )
 
-#grappelli için
-#TEMPLATE_CONTEXT_PROCESSORS = (
-#    "django.core.context_processors.request",
-#)
 
 
 

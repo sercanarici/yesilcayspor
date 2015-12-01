@@ -6,7 +6,7 @@
         <h2>HABERLER</h2>
         {% for haber in haberler %}
             <article>
-                <img src="{{ haber.foto }}"/>
+                <img src="{{ haber.foto.url }}"/>
 
                 <div class="blog-text">
                     <h4>{{ haber.baslik }}</h4>

@@ -219,3 +219,16 @@ class NostaljiFotolari(models.Model):
     def __str__(self):
         return self.foto.name
 
+
+class OnurKurulu(models.Model):
+    ad = models.CharField(max_length=50)
+    foto = FilerImageField(null=True, blank=True, related_name='kisi_foto')
+    sira = models.IntegerField(verbose_name='sıra', blank=True, default=0)
+
+    class Meta:
+        verbose_name = 'Kişi'
+        verbose_name_plural = "Onur Kurulu"
+
+    def __str__(self):
+        return self.ad
+

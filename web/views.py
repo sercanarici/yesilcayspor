@@ -1,5 +1,5 @@
 from django.shortcuts import render, render_to_response
-from web.models import Haber, SiteAyarlar, Slider, Efsaneler, Sponsorlar, Baskanlar, TeknikHeyet, Yonetim, Futbolcular, Sonuclar, StadFotolari, TesisFotolari, NostaljiFotolari
+from web.models import *
 from web.puan_durumu import PuanDurum
 from django.shortcuts import RequestContext
 
@@ -100,6 +100,12 @@ def iletisim(request):
 def nostalji_fotolar(request):
     fotolar = NostaljiFotolari.objects.all()
     return render(request, "nostalji-galeri.html", locals())
+
+
+def onur_kurulu(request):
+    kisiler = OnurKurulu.objects.all().order_by('sira')
+    return render(request, "onur-kurulu.html", locals())
+
 
 
 def basvuru(request):

@@ -35,6 +35,7 @@ urlpatterns = [
     url(r'^basvuru$', basvuru, name='basvuru'),
     url(r'^teknikheyet$', teknikheyet, name='teknikheyet'),
     url(r'^futbolcular$', futbolcular, name='futbolcular'),
+    url(r'^onur-kurulu$', onur_kurulu, name='onurkurulu'),
     url(r'^nostalji-fotolar$', nostalji_fotolar, name='nostalji-galeri'),
     url(r'^iletisim$', iletisim, name='iletisim'),
     url(r'^ckeditor/', include('ckeditor_uploader.urls')),

@@ -56,6 +56,10 @@ class GaleriAdmin(BaseAdmin):
 class HaberAdmin(admin.ModelAdmin):
     list_display = ('baslik','olusturulma_tarihi',)
 
+class OnurKuruluAdmin(BaseAdmin):
+    list_display = ('ad', 'sira', 'display_photo',)
+
+
 
 admin.site.register(Haber, HaberAdmin)
 admin.site.register(SiteAyarlar)
@@ -73,3 +77,4 @@ admin.site.register(Futbolcular, FutbolcuAdmin)
 admin.site.register(StadFotolari, GaleriAdmin)
 admin.site.register(TesisFotolari, GaleriAdmin)
 admin.site.register(NostaljiFotolari, GaleriAdmin)
+admin.site.register(OnurKurulu,OnurKuruluAdmin)

@@ -112,6 +112,7 @@ margin-right: auto;
 .header img {
     width: 100%;
     max-width: 441px;
+    margin-left: 7px;
 }
 
 .logoLeft {

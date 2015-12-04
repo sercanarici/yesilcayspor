@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content_left %}
+    <div class="page-detay">
+        <h2>ONUR KURULU</h2>
+
+        {% for kisi in kisiler %}
+            <div class="col-md-3">
+                <div class="baskan item">
+                <a href="">
+                    <div class="baskan_resim">
+                        <img alt=""
+                             src="{{ kisi.foto.url }}"
+                             title="Mathieu">
+                    </div>
+                    <div class="baskan_detay">
+                        <p>
+                            <span class="formaAd">{{ kisi.ad }}</span>
+                            <span class="formaMevki"></span>
+                        </p>
+                    </div>
+                </a>
+            </div>
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}
+

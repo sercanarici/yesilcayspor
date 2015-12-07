@@ -1,6 +1,7 @@
 ﻿{% extends "base.html" %}
 
 {% load staticfiles %}
+{% load thumbnail %}
 
 {% block content_left %}
     <div class="page-detay">
@@ -9,7 +10,7 @@
             {% for foto in fotolar %}
                 <li class="col-md-3">
                     <a href="{{ foto.foto.url }}" class="fancybox-thumb" rel="fancybox-thumb">
-                        <img src="{{ foto.foto.url }}" class="ref" alt=""/>
+                        <img src="{% thumbnail foto.foto 150x150 %}" class="ref" alt=""/>
                     </a>
                 </li>
             {% endfor %}

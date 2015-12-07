@@ -12,7 +12,7 @@ def bad_request(request):
 
 
 def index(request):
-    haberler = Haber.objects.all()[:5]
+    haberler = Haber.objects.all().order_by('-olusturulma_tarihi')[:5]
     slides = Slider.objects.all().order_by('sira')
     efsaneler = Efsaneler.objects.all().order_by('sira')
     sponsorlar = Sponsorlar.objects.all()
@@ -31,7 +31,7 @@ def fikstur(request):
 
 
 def haberler(request):
-    haberler = Haber.objects.all().order_by('olusturulma_tarihi')
+    haberler = Haber.objects.all().order_by('-olusturulma_tarihi')
     return render(request, "haberler.html", locals())
 
 

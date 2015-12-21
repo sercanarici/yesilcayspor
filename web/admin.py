@@ -9,7 +9,7 @@ class BaseAdmin(admin.ModelAdmin):
     #readonly_fields = ('sira', 'image', 'aciklama', )
 
     def display_photo(self,obj):
-        if obj.id:
+        if obj.id and obj.foto:
             return '<img src="%s" height="80px;">' % obj.foto.url
         return ''
     display_photo.allow_tags = True
